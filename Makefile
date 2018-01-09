@@ -2,16 +2,16 @@ all: crackvim
 
 
 pkzip_crypto.o: pkzip_crypto.c pkzip_crypto.h
-	gcc -c -o $@ $<
+	$(CC) -c -o $@ $<
 
 crackvim.o: crackvim.c crc32.h pkzip_crypto.h
-	gcc -g -c -o $@ $<
+	$(CC) -g -c -o $@ $<
 
 crc32.o: crc32.c
-	gcc -c -o $@ $<
+	$(CC) -c -o $@ $<
 
 crackvim: crackvim.o crc32.o pkzip_crypto.o
-	gcc -g -o $@ $^
+	$(CC) -g -o $@ $^
 
 .PHONY: clean
 
